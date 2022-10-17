@@ -29,8 +29,14 @@ class RichestPeoples {
         return $this->db->execute();
     }
 
-    public function updateRichestPeople() {
-
+    public function updateRichestPeople($post) {
+        $this->db->query('UPDATE richestpeople SET Name = :name, Networth = :networth, MyAge = :myage, Company = :company WHERE Id = :id');
+        $this->db->bind(':name', $post['Name']);
+        $this->db->bind(':networth', $post['Networth']);
+        $this->db->bind(':myage', $post['MyAge']);
+        $this->db->bind(':company', $post['Company']);
+        $this->db->bind(':id', $post['id']);
+        return $this->db->execute();
     }
 
     public function getSingleRichestPeople($id) {

@@ -17,6 +17,7 @@
                 <th>Vermogen</th>
                 <th>Leeftijd</th>
                 <th>Bedrijf</th>
+                <th>Update</th>
                 <th>Delete</th>
             </tr>
         </thead>
