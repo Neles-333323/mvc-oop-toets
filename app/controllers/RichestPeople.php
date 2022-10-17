@@ -2,15 +2,15 @@
     
 class RichestPeople extends Controller
 {
-    private $richestPeople;
+    private $richestPeopleModel;
     public function __construct() 
     {
-        $this->richestPeople = $this->model('RichestPeoples');
+        $this->richestPeopleModel = $this->model('RichestPeoples');
     }
 
     public function index() 
     {
-        $record = $this->richestPeople->getRichestPeople();
+        $record = $this->richestPeopleModel->getRichestPeople();
 
         $rows = '';
         foreach($record as $value) {
@@ -31,8 +31,20 @@ class RichestPeople extends Controller
         $this->view('richestpeople/index', $data);
     }
 
-    public function delete($id = null) {
-        $this->richestPeople->deleteRichestPeople($id);
-        header("Location: " . URLROOT . "richestpeople/delete") ;
+    public function delete($id)
+    {
+        if (!$id) {
+            header('Location: ' . URLROOT . '/RichestPeople/index');
+        }
+
+        $this->richestPeopleModel->deleteRichestPeople($id);
+
+        $data = [
+            'title' => 'Record is succesvol verwijderd',
+        ];
+
+        $this->view('richestpeople/delete', $data);
+
+        header("Refresh: 2; url=" . URLROOT . "/RichestPeople/index");
     }
 }

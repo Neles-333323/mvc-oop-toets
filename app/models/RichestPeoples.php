@@ -15,7 +15,7 @@ class RichestPeoples {
     }
 
     public function deleteRichestPeople($id) {
-        $this->db->query('DELETE FROM richestpeople WHERE Id = :id');
+        $this->db->query('DELETE FROM richestpeople WHERE Id = :id ORDER BY Id DESC LIMIT 1');
         $this->db->bind(':id', $id);
         return $this->db->execute();
     }

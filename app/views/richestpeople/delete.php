@@ -1,1 +1,3 @@
-<p>Record is Succesvol verwijderd</p>
+<?php 
+
+echo $data['title'];
