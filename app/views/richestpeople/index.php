@@ -8,6 +8,8 @@
 </head>
 <body>
 
+    <a href="<?= URLROOT; ?>RichestPeople/create">Create</a>
+
     <table>
         <thead>
             <tr>

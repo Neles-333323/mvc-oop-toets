@@ -19,4 +19,23 @@ class RichestPeoples {
         $this->db->bind(':id', $id);
         return $this->db->execute();
     }
+
+    public function createRichestPeople($post) {
+        $this->db->query('INSERT INTO richestpeople (Name, Networth, MyAge, Company) VALUES (:name, :networth, :myage, :company)');
+        $this->db->bind(':name', $post['Name']);
+        $this->db->bind(':networth', $post['Networth']);
+        $this->db->bind(':myage', $post['MyAge']);
+        $this->db->bind(':company', $post['Company']);
+        return $this->db->execute();
+    }
+
+    public function updateRichestPeople() {
+
+    }
+
+    public function getSingleRichestPeople($id) {
+        $this->db->query('SELECT * FROM richestpeople WHERE Id = :id');
+        $this->db->bind(':id', $id);
+        return $this->db->single();
+    }
 }

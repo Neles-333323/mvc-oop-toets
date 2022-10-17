@@ -11,7 +11,5 @@
     <label for="Company">Bedrijf:</label>
     <input type="text" name="Company" id="Company">
 
-    <input type="hidden" name="id">
-
     <input type="submit" value="Submit">
 </form>
