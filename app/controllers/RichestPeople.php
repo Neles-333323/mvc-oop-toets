@@ -30,4 +30,9 @@ class RichestPeople extends Controller
 
         $this->view('richestpeople/index', $data);
     }
+
+    public function delete($id = null) {
+        $this->richestPeople->deleteRichestPeople($id);
+        header("Location: " . URLROOT . "richestpeople/delete") ;
+    }
 }
