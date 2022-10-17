@@ -34,7 +34,7 @@ class RichestPeople extends Controller
     public function delete($id)
     {
         if (!$id) {
-            header('Location: ' . URLROOT . '/RichestPeople/index');
+            header('Location: ' . URLROOT . 'RichestPeople/index');
         }
 
         $this->richestPeopleModel->deleteRichestPeople($id);
@@ -45,6 +45,6 @@ class RichestPeople extends Controller
 
         $this->view('richestpeople/delete', $data);
 
-        header("Refresh: 2; url=" . URLROOT . "/RichestPeople/index");
+        header("Refresh: 2; url=" . URLROOT . "RichestPeople/index");
     }
 }

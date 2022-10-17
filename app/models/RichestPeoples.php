@@ -10,14 +10,13 @@ class RichestPeoples {
     }
 
     public function getRichestPeople() {
-        $this->db->query('SELECT * FROM richestpeople');
+        $this->db->query('SELECT * FROM richestpeople ORDER BY Networth DESC');
         return $this->db->resultSet();
     }
 
     public function deleteRichestPeople($id) {
-        $this->db->query('DELETE FROM richestpeople WHERE Id = :id ORDER BY Id DESC LIMIT 1');
+        $this->db->query('DELETE FROM richestpeople WHERE Id = :id');
         $this->db->bind(':id', $id);
         return $this->db->execute();
     }
-
 }
